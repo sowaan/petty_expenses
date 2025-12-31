@@ -17,6 +17,10 @@
   "user",
   "section_break_ftsx",
   "detail_table",
+  "section_break_dknx",
+  "total_amount",
+  "column_break_hpew",
+  "total_sanctioned",
   "section_break_qxar",
   "payment_account",
   "column_break_vpli",
@@ -112,13 +116,33 @@
    "fieldtype": "Link",
    "label": "Tax Account",
    "options": "Account"
+  },
+  {
+   "fieldname": "section_break_dknx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Float",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hpew",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_sanctioned",
+   "fieldtype": "Float",
+   "label": "Total Sanctioned",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-12 11:19:03.940433",
+ "modified": "2025-12-31 13:34:17.808003",
  "modified_by": "Administrator",
  "module": "Petty Expenses",
  "name": "Petty Cash Expense Recording",

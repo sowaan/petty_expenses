@@ -14,7 +14,7 @@ frappe.ui.form.on('Petty Cash Expense Recording', {
 
     refresh(frm) {
         // Also re-apply on refresh (in case of changes / permissions etc.)
-
+        calculate_totals(frm);
         set_child_table_queries(frm);
         set_payment_account_query(frm);
         set_tax_account_query(frm);
@@ -207,7 +207,33 @@ frappe.ui.form.on('Petty Expenses', {
         });
     },
     amount(frm, cdt, cdn) {
-        amount_val = locals[cdt][cdn].amount || 0;
-        frappe.model.set_value(cdt, cdn, "sanctioned_amount", amount_val);
+        const row = locals[cdt][cdn];
+
+        if (!row.sanctioned_amount) {
+            frappe.model.set_value(cdt, cdn, "sanctioned_amount", flt(row.amount));
+        }
+
+        calculate_totals(frm);
+    },
+
+    sanctioned_amount(frm, cdt, cdn) {
+        calculate_totals(frm);
+    },
+
+    detail_table_remove(frm) {
+        calculate_totals(frm);
     }
+   
 });
+function calculate_totals(frm) {
+    let total_amount = 0;
+    let total_sanctioned = 0;
+
+    (frm.doc.detail_table || []).forEach(row => {
+        total_amount += flt(row.amount);
+        total_sanctioned += flt(row.sanctioned_amount);
+    });
+
+    frm.set_value("total_amount", total_amount);
+    frm.set_value("total_sanctioned", total_sanctioned);
+}
