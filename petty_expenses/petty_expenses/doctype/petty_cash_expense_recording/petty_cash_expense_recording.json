@@ -122,6 +122,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "total_amount",
    "fieldtype": "Float",
    "label": "Total Amount",
@@ -132,6 +133,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "total_sanctioned",
    "fieldtype": "Float",
    "label": "Total Sanctioned",
@@ -142,7 +144,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-31 13:34:17.808003",
+ "modified": "2026-01-05 12:27:24.197786",
  "modified_by": "Administrator",
  "module": "Petty Expenses",
  "name": "Petty Cash Expense Recording",
